@@ -1,0 +1,17 @@
+Need to turn long/lat points into US congressional districts?
+Copy the 'tiles' directory into your web site and use the following code:
+
+<script src="tiles/lookup.js"></script>
+<script>
+lookupDistrict(longitude, latitude, function (found, state, district) {
+    if (found === "found") {
+        // ...
+    }
+});
+</script>
+
+To re-generate the 'tiles' directory, compile and run main.go.  It takes as
+input a shapefile of congressional districts (available from the US Census
+Bureau at http://www.census.gov/geo/maps-data/data/tiger-line.html) and slices
+it up into tiles.  These tiles are adaptively sized and indexed using a
+k-d tree -- see the code for details.
