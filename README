@@ -10,6 +10,11 @@ lookupDistrict(longitude, latitude, function (found, state, district) {
 });
 </script>
 
+Calling lookupDistrict() finds the proper tile in the 'tiles' directory, then
+tests each polygonal district in the tile until it finds one containing the
+query point.  No requests are made to any service -- the tile data are hosted as
+as static files.
+
 To re-generate the 'tiles' directory, compile and run main.go.  It takes as
 input a shapefile of congressional districts (available from the US Census
 Bureau at http://www.census.gov/geo/maps-data/data/tiger-line.html) and slices
